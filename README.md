@@ -1,8 +1,27 @@
-# Portland_Charter
+# Portland Charter
 
 Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
 
-This is the open-source repository for Portland_Charter, based on [Decidim](https://github.com/decidim/decidim).
+This is the open-source repository for Portland Charter, based on [Decidim](https://github.com/decidim/decidim).
+
+## Setup
+
+```bash
+APP_NAME="Portland Charter"
+docker run -it -v "$(pwd):/code" decidim/decidim ${APP_NAME}
+cd Portland\ Charter
+heroku git:remote -a portlandcharter
+git add .
+git commit -m "Portland Charter"
+git push heroku master
+heroku run rake db:migrate
+heroku run rails console
+```
+
+```ruby
+user = Decidim::System::Admin.new(email: 'admin@portlandcharter.test', password: <password>, password_confirmation: <password>)
+user.save!
+```
 
 ## Setting up the application
 
