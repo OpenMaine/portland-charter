@@ -13,7 +13,7 @@ cd Portland\ Charter
 heroku git:remote -a portlandcharter
 git add .
 git commit -m "Portland Charter"
-git push heroku master
+git push heroku main
 heroku run rake db:migrate
 heroku run rails console
 ```
